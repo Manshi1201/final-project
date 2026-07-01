@@ -3,7 +3,7 @@
 # SauceDemo Automation Testing Project
 
 ## Project Overview
-This project demonstrates automated UI testing of the SauceDemo website using Selenium IDE, Selenium WebDriver, Maven, TestNG, Jenkins, and GitHub integration.
+This project demonstrates automated UI testing of the SauceDemo website using Selenium IDE, Selenium WebDriver, Maven, TestNG, Docker Jenkins, and GitHub integration.
 
 The automation flow includes:
 - User login
@@ -22,6 +22,7 @@ The automation flow includes:
 - Eclipse IDE
 - Maven
 - TestNG
+- Docker
 - Jenkins
 - GitHub
 - Microsoft Edge / Chrome Browser
@@ -54,10 +55,11 @@ The automated test performs the following actions:
 2. Java code exported from Selenium IDE
 3. Maven project created in Eclipse IDE
 4. Selenium WebDriver and TestNG configured
-5. Automated test executed successfully
-6. Project pushed to GitHub repository
-7. Jenkins integrated with GitHub for CI/CD automation
-8. Jenkins build executed successfully using Maven
+5. Docker integrated to run tests using Selenium Grid
+6. Automated test executed successfully
+7. Project pushed to GitHub repository
+8. Jenkins integrated with GitHub for CI/CD automation
+9. Jenkins build executed successfully using Maven
 
 ---
 
@@ -67,6 +69,16 @@ The automated test performs the following actions:
 - WebDriverManager
 - TestNG
 
+---
+## Docker Integration
+Docker was configured with:
+- Selenium Grid (Hub + Chrome Node) running in containers
+- docker-compose.yml used to define and start the services
+- Tests executed remotely against the containerized browser using RemoteWebDriver
+Command used to start Docker containers:
+```bash
+docker compose up -d
+```
 ---
 
 ## Jenkins Integration
