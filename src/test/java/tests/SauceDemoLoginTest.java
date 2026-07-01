@@ -1,6 +1,10 @@
 package tests;
 
 import org.testng.annotations.Test;
+
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import java.net.URL;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
@@ -8,11 +12,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import java.net.URI;
 
 public class SauceDemoLoginTest {
 
@@ -20,9 +23,12 @@ public class SauceDemoLoginTest {
 	  private Map<String, Object> vars;
 	  JavascriptExecutor js;
 	  @BeforeMethod
-	  public void setUp() {
-	    driver = new ChromeDriver();
-	    js = (JavascriptExecutor) driver;
+	  public void setUp() throws Exception {
+		  driver = new RemoteWebDriver(
+		        URI.create("http://localhost:4444/wd/hub").toURL(),
+		        new ChromeOptions()
+				  );	    
+		  js = (JavascriptExecutor) driver;
 	    vars = new HashMap<String, Object>();
 	  }
 	  @AfterMethod
